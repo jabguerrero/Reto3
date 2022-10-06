@@ -2,7 +2,6 @@ package com.usa.reto3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,8 +13,11 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
+    @Column(name = "startDate")
     private Date startDate;
+    @Column(name = "devolutionDate")
     private Date devolutionDate;
+    @Column(name = "status")
     private String status="created";
 
     public Date getStartDate() {

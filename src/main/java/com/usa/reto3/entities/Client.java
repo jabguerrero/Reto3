@@ -1,9 +1,7 @@
 package com.usa.reto3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import net.bytebuddy.implementation.bind.annotation.AllArguments;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,9 +13,13 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "name")
     private String name;
+    @Column(name = "age")
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")

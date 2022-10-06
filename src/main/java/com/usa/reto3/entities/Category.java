@@ -2,7 +2,6 @@ package com.usa.reto3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +13,9 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")

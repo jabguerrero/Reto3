@@ -2,7 +2,6 @@ package com.usa.reto3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -14,10 +13,13 @@ public class Motorbike implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "brand")
     private String brand;
-    @Column (name = "'year'")
+    @Column (name = "year")
     private Integer year;
+    @Column(name = "description")
     private String description;
 
     @ManyToOne
