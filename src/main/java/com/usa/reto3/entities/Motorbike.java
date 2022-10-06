@@ -56,8 +56,8 @@ public class Motorbike implements Serializable {
         return yea;
     }
 
-    public void setYea(Integer year) {
-        this.yea = year;
+    public void setYea(Integer yea) {
+        this.yea = yea;
     }
 
     public String getDescription() {
