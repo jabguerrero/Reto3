@@ -18,7 +18,7 @@ public class Motorbike implements Serializable {
     @Column(name = "brand")
     private String brand;
     @Column (name = "year")
-    private Integer year;
+    private String year;
     @Column(name = "description")
     private String description;
 
@@ -50,11 +50,11 @@ public class Motorbike implements Serializable {
         this.brand = brand;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
