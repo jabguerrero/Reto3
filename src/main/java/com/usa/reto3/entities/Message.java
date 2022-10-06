@@ -3,9 +3,11 @@ package com.usa.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
@@ -37,14 +39,6 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public Motorbike getMotorbike() {
         return motorbike;
     }
@@ -53,4 +47,11 @@ public class Message {
         this.motorbike = motorbike;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

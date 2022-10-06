@@ -3,11 +3,12 @@ package com.usa.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
-public class Reservation {
+public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,20 +19,6 @@ public class Reservation {
     private Date devolutionDate;
 
     private String status="created";
-
-    public Date getStartDate() {
-        return startDate;
-    }
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-    public Date getDevolutionDate() {
-        return devolutionDate;
-    }
-    public void setDevolutionDate(Date devolutionDate) {
-        this.devolutionDate = devolutionDate;
-    }
-
     @ManyToOne
     @JoinColumn(name = "motorbikeId")
     @JsonIgnoreProperties("reservations")
@@ -44,14 +31,6 @@ public class Reservation {
     @JsonIgnoreProperties("reservation")
     private Score score;
 
-    public Score getScore() {
-        return score;
-    }
-
-    public void setScore(Score score) {
-        this.score = score;
-    }
-
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -60,9 +39,21 @@ public class Reservation {
         this.idReservation = idReservation;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
 
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
+    public Date getDevolutionDate() {
+        return devolutionDate;
+    }
 
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
+    }
 
     public String getStatus() {
         return status;
@@ -71,7 +62,6 @@ public class Reservation {
     public void setStatus(String status) {
         this.status = status;
     }
-
 
     public Motorbike getMotorbike() {
         return motorbike;
@@ -89,5 +79,11 @@ public class Reservation {
         this.client = client;
     }
 
+    public Score getScore() {
+        return score;
+    }
 
+    public void setScore(Score score) {
+        this.score = score;
+    }
 }
