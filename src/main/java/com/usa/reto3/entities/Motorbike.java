@@ -12,15 +12,10 @@ public class Motorbike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
-
     private String brand;
-
     private Integer yea;
-
     private String description;
-
     @ManyToOne
     @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("motorbikes")
@@ -32,13 +27,20 @@ public class Motorbike {
     @JsonIgnoreProperties({"motorbike","messages"})
     private List<Reservation> reservations;
 
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBrand() {
@@ -49,20 +51,12 @@ public class Motorbike {
         this.brand = brand;
     }
 
-    public Integer getYear() {
+    public Integer getYea() {
         return yea;
     }
 
-    public void setYear(Integer year) {
-        this.yea = year;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setYea(Integer yea) {
+        this.yea = yea;
     }
 
     public String getDescription() {
@@ -81,20 +75,20 @@ public class Motorbike {
         this.category = category;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
     public List<Message> getMessages() {
         return messages;
     }
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
 
