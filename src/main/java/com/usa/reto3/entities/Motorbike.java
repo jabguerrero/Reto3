@@ -15,6 +15,7 @@ public class Motorbike implements Serializable {
     private Integer id;
     private String name;
     private String brand;
+
     private Integer yea;
     private String description;
     @ManyToOne
