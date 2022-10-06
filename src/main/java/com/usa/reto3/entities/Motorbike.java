@@ -3,23 +3,22 @@ package com.usa.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "motorbike")
 
-public class Motorbike implements Serializable {
+public class Motorbike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name")
+
     private String name;
-    @Column(name = "brand")
+
     private String brand;
-    @Column (name = "year")
-    private Integer year;
-    @Column(name = "description")
+
+    private Integer yea;
+
     private String description;
 
     @ManyToOne
@@ -51,11 +50,11 @@ public class Motorbike implements Serializable {
     }
 
     public Integer getYear() {
-        return year;
+        return yea;
     }
 
     public void setYear(Integer year) {
-        this.year = year;
+        this.yea = year;
     }
 
     public String getName() {

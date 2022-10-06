@@ -3,23 +3,22 @@ package com.usa.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "client")
-public class Client implements Serializable {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
-    @Column(name = "email")
+
     private String email;
-    @Column(name = "password")
+
     private String password;
-    @Column(name = "name")
+
     private String name;
-    @Column(name = "age")
+
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
