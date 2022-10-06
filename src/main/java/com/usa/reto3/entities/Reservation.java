@@ -20,11 +20,11 @@ public class Reservation implements Serializable {
 
     private String status="created";
     @ManyToOne
-    @JoinColumn(name = "motorbikeId")
+    @JoinColumn(name = "id")
     @JsonIgnoreProperties("reservations")
     private Motorbike motorbike;
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "idClient")
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
