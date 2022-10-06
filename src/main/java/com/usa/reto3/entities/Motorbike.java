@@ -16,7 +16,7 @@ public class Motorbike implements Serializable {
     private String name;
     private String brand;
 
-    private Integer yea;
+    private Integer year;
     private String description;
     @ManyToOne
     @JoinColumn(name = "categoryId")
@@ -54,11 +54,11 @@ public class Motorbike implements Serializable {
     }
 
     public Integer getYea() {
-        return yea;
+        return year;
     }
 
     public void setYea(Integer year) {
-        this.yea = year;
+        this.year = year;
     }
 
     public String getDescription() {
