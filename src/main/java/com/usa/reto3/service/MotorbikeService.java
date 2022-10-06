@@ -47,8 +47,8 @@ public class MotorbikeService {
                 if(p.getName()!=null){
                     q.get().setName(p.getName());
                 }
-                if(p.getYea()!=null){
-                    q.get().setYea(p.getYea());
+                if(p.getYear()!=null){
+                    q.get().setYear(p.getYear());
                 }
                 if(p.getDescription()!=null){
                     q.get().setDescription(p.getDescription());

@@ -52,12 +52,12 @@ public class Motorbike implements Serializable {
         this.brand = brand;
     }
 
-    public Integer getYea() {
+    public Integer getYear() {
         return yea;
     }
 
-    public void setYea(Integer yea) {
-        this.yea = yea;
+    public void setYear(Integer year) {
+        this.yea = year;
     }
 
     public String getDescription() {
