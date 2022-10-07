@@ -8,18 +8,21 @@ import java.util.List;
 
 @Entity
 @Table(name = "motorbike")
-
 public class Motorbike implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name", nullable = false, unique = false)
     private String name;
+    @Column(name = "brand", nullable = false, unique = false)
     private String brand;
-
-    private Integer yea;
+    @Column(name = "'year'", nullable = false, unique = false)
+    private Integer year;
+    @Column(name = "description", nullable = false, unique = false)
     private String description;
+
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "idCategory")
     @JsonIgnoreProperties("motorbikes")
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "motorbike")
@@ -48,17 +51,16 @@ public class Motorbike implements Serializable {
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
     public Integer getYear() {
-        return yea;
+        return year;
     }
 
     public void setYear(Integer year) {
-        this.yea = year;
+        this.year = year;
     }
 
     public String getDescription() {

@@ -13,11 +13,10 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-
+    @Column(name = "startDate", nullable = false, unique = false)
     private Date startDate;
-
+    @Column(name = "devolutionDate", nullable = false, unique = false)
     private Date devolutionDate;
-
     private String status="created";
     @ManyToOne
     @JoinColumn(name = "id")

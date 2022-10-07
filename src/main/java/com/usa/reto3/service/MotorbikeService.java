@@ -10,16 +10,13 @@ import java.util.Optional;
 
 @Service
 public class MotorbikeService {
-
     @Autowired
     private MotorbikeRepository motorbikeRepository;
 
     public List<Motorbike> getAll(){
         return motorbikeRepository.getAll();
     }
-
     public Optional<Motorbike> getMotorbike(int id) {
-
         return motorbikeRepository.getMotorbike(id);
     }
     public Motorbike save(Motorbike p){
@@ -28,12 +25,9 @@ public class MotorbikeService {
         }else{
             Optional<Motorbike> e = motorbikeRepository.getMotorbike(p.getId());
             if(e.isPresent()){
-
                 return p;
             }else{
-
                 return motorbikeRepository.save(p);
-
             }
         }
     }

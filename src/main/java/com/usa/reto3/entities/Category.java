@@ -13,9 +13,9 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name = "name", nullable = false, unique = false)
     private String name;
-
+    @Column(name = "description", nullable = false, unique = false)
     private String description;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")
@@ -24,7 +24,6 @@ public class Category implements Serializable {
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }

@@ -13,13 +13,15 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
-
+    @Column(name = "email", nullable = false, unique = false)
     private String email;
 
+    @Column(name = "password", nullable = false, unique = false)
     private String password;
-
+    @Column(name = "name", nullable = false, unique = false)
     private String name;
 
+    @Column(name = "age", nullable = false, unique = false)
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")

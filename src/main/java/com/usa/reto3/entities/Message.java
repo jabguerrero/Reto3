@@ -12,6 +12,7 @@ public class Message implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
 
+    @Column(name = "messageText", nullable = false, unique = false)
     private String messageText;
     @ManyToOne
     @JoinColumn(name = "Id")
