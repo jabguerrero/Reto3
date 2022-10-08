@@ -4,24 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
-    @Column(name = "email", nullable = false, unique = false)
     private String email;
-
-    @Column(name = "password", nullable = false, unique = false)
     private String password;
-    @Column(name = "name", nullable = false, unique = false)
     private String name;
-
-    @Column(name = "age", nullable = false, unique = false)
     private Integer age;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
@@ -31,6 +25,11 @@ public class Client implements Serializable {
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
+
+    public Client(){
+        this.reservations = new ArrayList<Reservation>();
+        this.messages = new ArrayList<Message>();
+    }
 
     public Integer getIdClient() {
         return idClient;

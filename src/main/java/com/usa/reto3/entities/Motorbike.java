@@ -12,17 +12,13 @@ public class Motorbike implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name", nullable = false, unique = false)
     private String name;
-    @Column(name = "brand", nullable = false, unique = false)
     private String brand;
-    @Column(name = "'year'", nullable = false, unique = false)
+    @Column(name = "years")
     private Integer year;
-    @Column(name = "description", nullable = false, unique = false)
     private String description;
-
     @ManyToOne
-    @JoinColumn(name = "idCategory")
+    @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("motorbikes")
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "motorbike")
@@ -31,6 +27,10 @@ public class Motorbike implements Serializable {
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "motorbike")
     @JsonIgnoreProperties({"motorbike","messages"})
     private List<Reservation> reservations;
+
+    public Motorbike(){
+
+    }
 
     public Integer getId() {
         return id;
@@ -51,6 +51,7 @@ public class Motorbike implements Serializable {
     public String getBrand() {
         return brand;
     }
+
     public void setBrand(String brand) {
         this.brand = brand;
     }

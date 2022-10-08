@@ -11,18 +11,20 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
-
-    @Column(name = "messageText", nullable = false, unique = false)
     private String messageText;
     @ManyToOne
-    @JoinColumn(name = "Id")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JoinColumn(name = "motorbikeId")
+    @JsonIgnoreProperties({"messages","reservations", "client"})
     private Motorbike motorbike;
 
     @ManyToOne
-    @JoinColumn(name = "idClient")
+    @JoinColumn(name = "client1")
     @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
+
+    public Message(){
+
+    }
 
     public Integer getIdMessage() {
         return idMessage;

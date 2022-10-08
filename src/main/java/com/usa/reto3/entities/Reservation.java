@@ -19,16 +19,19 @@ public class Reservation implements Serializable {
     private Date devolutionDate;
     private String status="created";
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "motorbikeId")
     @JsonIgnoreProperties("reservations")
     private Motorbike motorbike;
     @ManyToOne
-    @JoinColumn(name = "idClient")
+    @JoinColumn(name = "ClientId")
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
     @JsonIgnoreProperties("reservation")
     private Score score;
+    public Reservation(){
+
+    }
 
     public Integer getIdReservation() {
         return idReservation;
