@@ -35,8 +35,8 @@ public class CategoryController {
     }
 
     @DeleteMapping("/delete/{idCategory}")
-    public boolean deleteAdmin(@PathVariable Integer idAdmin) {
-        return categoryService.delete(idAdmin);
+    public boolean deleteCategory(@PathVariable Integer idCategory) {
+        return categoryService.delete(idCategory);
     }
 
     @PutMapping("/update")
@@ -47,12 +47,12 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Category> update(@PathVariable Integer id) {
-        Category category = categoryService.getCategory(id).get();
+        Category category;
         try {
             category = categoryService.getCategory(id).get();
-            return new ResponseEntity<Category>(category, HttpStatus.OK);
+            return new ResponseEntity<>(category, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }

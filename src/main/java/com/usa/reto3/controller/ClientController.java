@@ -47,12 +47,12 @@ public class ClientController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Client> update(@PathVariable Integer id) {
-        Client client = clientService.getClient(id).get();
+        Client client;
         try {
             client = clientService.getClient(id).get();
-            return new ResponseEntity<Client>(client, HttpStatus.OK);
+            return new ResponseEntity<>(client, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Client>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }

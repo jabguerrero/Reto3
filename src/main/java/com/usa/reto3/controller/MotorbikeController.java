@@ -32,35 +32,35 @@ public class MotorbikeController {
     public ResponseEntity<Motorbike> get(@PathVariable Integer id) {
         try {
             Motorbike motorbike = motorbikeService.get(id);
-            return new ResponseEntity<Motorbike>(motorbike, HttpStatus.OK);
+            return new ResponseEntity<>(motorbike, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Motorbike>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-        @PostMapping("/all")
-        @ResponseStatus(HttpStatus.CREATED)
-        public List<Motorbike> getAllMotorbike2() {
-            return motorbikeService.getAll();
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Motorbike> getAllMotorbike2() {
+        return motorbikeService.getAll();
+    }
+    @DeleteMapping("/delete/{idMotorbike}")
+    public boolean deleteMotorbike(@PathVariable Integer idMotorbike) {
+        return motorbikeService.delete(idMotorbike);
+    }
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Motorbike updateMotorbike(@RequestBody Motorbike motorbike) {
+        return motorbikeService.update(motorbike);
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Motorbike> update(@PathVariable Integer id) {
+        motorbikeService.getMotorbike(id).get();
+        Motorbike motorbike;
+        try {
+            motorbike = motorbikeService.getMotorbike(id).get();
+            return new ResponseEntity<>(motorbike, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        @DeleteMapping("/delete/{idCient}")
-        public boolean deleteMotorbike(@PathVariable Integer idMotorbike) {
-            return motorbikeService.delete(idMotorbike);
-        }
-        @PutMapping("/update")
-        @ResponseStatus(HttpStatus.CREATED)
-        public Motorbike updateMotorbike(@RequestBody Motorbike motorbike) {
-            return motorbikeService.update(motorbike);
-        }
-        @PutMapping("/{id}")
-        public ResponseEntity<Motorbike> update(@PathVariable Integer id) {
-            motorbikeService.getMotorbike(id).get();
-            Motorbike motorbike;
-            try {
-                motorbike = motorbikeService.getMotorbike(id).get();
-                return new ResponseEntity<Motorbike>(motorbike, HttpStatus.OK);
-            } catch (NoSuchElementException e) {
-                return new ResponseEntity<Motorbike>(HttpStatus.NOT_FOUND);
-            }
-        }
+    }
 
-    }
+}

@@ -45,15 +45,14 @@ public class MessageController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Message> update(@PathVariable Integer id) {
-        Message message = messageService.getMessage(id).get();
+        Message message;
         try {
             message = messageService.getMessage(id).get();
-            return new ResponseEntity<Message>(message, HttpStatus.OK);
+            return new ResponseEntity<>(message, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Message>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
 
 
 }

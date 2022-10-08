@@ -25,41 +25,41 @@ public class AdminService {
     }
 
 
-    public Admin save(Admin administrador) {
-        if (administrador.getId() == null) {
-            return adminRepository.save(administrador);
+    public Admin save(Admin ad) {
+        if (ad.getId() == null) {
+            return adminRepository.save(ad);
         } else {
-            Optional<Admin> a = adminRepository.getAdmin(administrador.getId());
+            Optional<Admin> a = adminRepository.getAdmin(ad.getId());
             if (a.isPresent()) {
                 return a.get();
             } else {
-                return adminRepository.save(administrador);
+                return adminRepository.save(ad);
             }
         }
     }
 
-    public Admin update(Admin administrador) {
-        if (administrador.getId() != null) {
-            Optional<Admin> ad = adminRepository.getAdmin(administrador.getId());
+    public Admin update(Admin adm) {
+        if (adm.getId() != null) {
+            Optional<Admin> ad = adminRepository.getAdmin(adm.getId());
             if (ad.isPresent()) {
-                if (administrador.getName() != null) {
-                    ad.get().setName(administrador.getName());
+                if (adm.getName() != null) {
+                    ad.get().setName(adm.getName());
                 }
-                if (administrador.getEmail() != null) {
-                    ad.get().setEmail(administrador.getEmail());
+                if (adm.getEmail() != null) {
+                    ad.get().setEmail(adm.getEmail());
                 }
-                if (administrador.getPassword() != null) {
-                    ad.get().setPassword(administrador.getPassword());
+                if (adm.getPassword() != null) {
+                    ad.get().setPassword(adm.getPassword());
                 }
 
                 adminRepository.save(ad.get());
                 return ad.get();
 
             } else {
-                return administrador;
+                return adm;
             }
         } else {
-            return administrador;
+            return adm;
         }
     }
 

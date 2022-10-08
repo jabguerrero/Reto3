@@ -26,9 +26,9 @@ public class AdminController {
     public ResponseEntity<Admin> get(@PathVariable Integer id) {
         try {
             Admin admin = adminService.getAdmin(id).get();
-            return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+            return new ResponseEntity<>(admin, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Admin>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

@@ -44,12 +44,12 @@ public class ReservationController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Reservation> update(@PathVariable Integer id) {
-        Reservation reservation = reservationService.getReservation(id).get();
+        Reservation reservation;
         try {
             reservation = reservationService.getReservation(id).get();
-            return new ResponseEntity<Reservation>(reservation, HttpStatus.OK);
+            return new ResponseEntity<>(reservation, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<Reservation>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
