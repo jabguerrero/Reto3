@@ -13,10 +13,13 @@ public class Motorbike implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMotorbike")
     private Integer id;
+    @Column(length = 45)
     private String name;
+    @Column(length = 45)
     private String brand;
     @Column(name = "years")
     private Integer year;
+    @Column(length = 250)
     private String description;
     @ManyToOne
     @JoinColumn(name = "categoryId")

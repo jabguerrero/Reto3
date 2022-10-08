@@ -15,7 +15,7 @@ public class CategoryService {
     public List<Category> getAll(){
         return categoryRepository.getAll();
     }
-    public Optional<Category> getProduct(int id){
+    public Optional<Category> getCategory(int id){
         return categoryRepository.getCategory(id);
     }
     public Category save(Category p){

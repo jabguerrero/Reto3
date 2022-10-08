@@ -11,6 +11,7 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
+    @Column(length = 250)
     private String messageText;
     @ManyToOne
     @JoinColumn(name = "motorbikeId")

@@ -74,4 +74,8 @@ public class MotorbikeService {
         }
         return flag;
     }
+
+    public Motorbike get(Integer id) {
+        return null;
+    }
 }
