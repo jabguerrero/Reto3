@@ -11,16 +11,13 @@ import java.util.List;
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idCategory")
     private Integer id;
     private String name;
     private String description;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Motorbike> motorbikes;
-
-    public Category(){
-
-    }
 
     public Integer getId() {
         return id;

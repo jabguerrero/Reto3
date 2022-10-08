@@ -11,6 +11,7 @@ import java.util.List;
 public class Motorbike implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idMotorbike")
     private Integer id;
     private String name;
     private String brand;
@@ -22,15 +23,11 @@ public class Motorbike implements Serializable {
     @JsonIgnoreProperties("motorbikes")
     private Category category;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "motorbike")
-    @JsonIgnoreProperties({"motorbike","client"})
+    @JsonIgnoreProperties({"motorbike"})
     private List<Message> messages;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "motorbike")
-    @JsonIgnoreProperties({"motorbike","messages"})
+    @JsonIgnoreProperties({"motorbike"})
     private List<Reservation> reservations;
-
-    public Motorbike(){
-
-    }
 
     public Integer getId() {
         return id;
