@@ -65,7 +65,7 @@ public class ClientService {
             return p;
         }
     }
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(int id){
         boolean flag=false;
         Optional<Client>p= clientRepository.getClient(id);
