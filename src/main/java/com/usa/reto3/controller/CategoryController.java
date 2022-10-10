@@ -22,10 +22,6 @@ public class CategoryController {
     public List<Category> getAll(){
         return categoryService.getAll();
     }
-    //@GetMapping("/{id}")
-    //public Optional<Category> getCategory(@PathVariable("id") int id){
-    //    return categoryService.getCategory(id);
-    //}
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
@@ -42,9 +38,9 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-    @DeleteMapping("/{idCategory}")
-    public boolean deleteCategory(@PathVariable Integer idCategory) {
-        return categoryService.delete(idCategory);
+    @DeleteMapping("/{id}")
+    public boolean deleteCategory(@PathVariable Integer id) {
+        return categoryService.delete(id);
     }
 
     @PutMapping("/update")

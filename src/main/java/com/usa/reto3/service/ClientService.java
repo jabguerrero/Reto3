@@ -3,7 +3,9 @@ package com.usa.reto3.service;
 import com.usa.reto3.entities.Client;
 import com.usa.reto3.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -63,6 +65,7 @@ public class ClientService {
             return p;
         }
     }
+    @ResponseStatus(HttpStatus.CREATED)
     public boolean delete(int id){
         boolean flag=false;
         Optional<Client>p= clientRepository.getClient(id);

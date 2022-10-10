@@ -1,6 +1,5 @@
 package com.usa.reto3.controller;
 
-import com.usa.reto3.entities.Category;
 import com.usa.reto3.entities.Reservation;
 import com.usa.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 
@@ -23,10 +21,6 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
-    //@GetMapping("/{id}")
-    //public Optional<Reservation> getReservation(@PathVariable("id") int id) {
-    //    return reservationService.getReservation(id);
-    //}
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation p){

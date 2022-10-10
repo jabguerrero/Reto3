@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Motorbike")
@@ -21,10 +22,6 @@ public class MotorbikeController {
         return motorbikeService.getAll();
     }
 
-    //@GetMapping("/{id}")
-    //public Optional<Motorbike> getMotorbike(@PathVariable("id") int id) {
-    //    return motorbikeService.getMotorbike(id);
-    //}
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Motorbike save(@RequestBody Motorbike p){
