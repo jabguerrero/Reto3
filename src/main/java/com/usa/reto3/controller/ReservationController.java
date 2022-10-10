@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
+
 @RequestMapping("/api/Reservation")
 public class ReservationController {
     @Autowired
@@ -22,10 +23,10 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Reservation> getReservation(@PathVariable("id") int id) {
-        return reservationService.getReservation(id);
-    }
+    //@GetMapping("/{id}")
+    //public Optional<Reservation> getReservation(@PathVariable("id") int id) {
+    //    return reservationService.getReservation(id);
+    //}
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation p){

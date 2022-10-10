@@ -22,10 +22,10 @@ public class CategoryController {
     public List<Category> getAll(){
         return categoryService.getAll();
     }
-    @GetMapping("/{id}")
-    public Optional<Category> getCategory(@PathVariable("id") int id){
-        return categoryService.getCategory(id);
-    }
+    //@GetMapping("/{id}")
+    //public Optional<Category> getCategory(@PathVariable("id") int id){
+    //    return categoryService.getCategory(id);
+    //}
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
