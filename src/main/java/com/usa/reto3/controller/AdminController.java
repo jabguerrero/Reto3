@@ -23,6 +23,7 @@ public class AdminController {
         return adminService.getAll();
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Admin> get(@PathVariable Integer id) {
         try {

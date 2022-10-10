@@ -1,5 +1,6 @@
 package com.usa.reto3.controller;
 
+import com.usa.reto3.entities.Category;
 import com.usa.reto3.entities.Client;
 import com.usa.reto3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Client")
@@ -19,6 +21,12 @@ public class ClientController {
     public List<Client> getAll(){
         return clientService.getAll();
     }
+
+    @GetMapping("/{id}")
+    public Optional<Client> getClient(@PathVariable("id") int id) {
+        return clientService.getClient(id);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client p){
@@ -34,7 +42,7 @@ public class ClientController {
         return clientService.getAll();
     }
 
-    @DeleteMapping("/delete/{idClient}")
+    @DeleteMapping("/{idClient}")
     public boolean deleteClient(@PathVariable Integer idClient) {
         return clientService.delete(idClient);
     }

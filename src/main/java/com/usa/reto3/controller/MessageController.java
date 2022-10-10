@@ -1,5 +1,6 @@
 package com.usa.reto3.controller;
 
+import com.usa.reto3.entities.Category;
 import com.usa.reto3.entities.Message;
 import com.usa.reto3.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Message")
@@ -19,6 +21,11 @@ public class MessageController {
     @GetMapping("/all")
     public List<Message> getAll(){
         return messageService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Message> getMessage(@PathVariable("id") int id) {
+        return messageService.getMessage(id);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
@@ -35,7 +42,7 @@ public class MessageController {
     public List<Message> getAllClient2() {
         return messageService.getAll();
     }
-    @DeleteMapping("/delete/{idMessage}")
+    @DeleteMapping("/{idMessage}")
     public boolean deleteMessage(@PathVariable Integer idMessage) {
         return messageService.delete(idMessage);
     }

@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Category")
@@ -20,6 +22,11 @@ public class CategoryController {
     public List<Category> getAll(){
         return categoryService.getAll();
     }
+    @GetMapping("/{id}")
+    public Optional<Category> getCategory(@PathVariable("id") int id){
+        return categoryService.getCategory(id);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category save(@RequestBody Category p){
@@ -35,7 +42,7 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-    @DeleteMapping("/delete/{idCategory}")
+    @DeleteMapping("/{idCategory}")
     public boolean deleteCategory(@PathVariable Integer idCategory) {
         return categoryService.delete(idCategory);
     }
