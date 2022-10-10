@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/Motorbike")
+@CrossOrigin(origins = "*")
 public class MotorbikeController {
     @Autowired
     private MotorbikeService motorbikeService;
@@ -24,7 +25,6 @@ public class MotorbikeController {
     public Motorbike save(@RequestBody Motorbike p){
         return motorbikeService.save(p);
     }
-
 
 
 
@@ -46,6 +46,12 @@ public class MotorbikeController {
     public boolean deleteMotorbike(@PathVariable Integer idMotorbike) {
         return motorbikeService.delete(idMotorbike);
     }
+    //@DeleteMapping("/delete/all")
+    //public List<Motorbike> getAll2() {
+     //   return motorbikeService.delete(getAll2());
+    //}
+
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Motorbike updateMotorbike(@RequestBody Motorbike motorbike) {

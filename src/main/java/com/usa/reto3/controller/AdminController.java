@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/Admin")
+@CrossOrigin(origins = "*")
 public class AdminController {
 
     @Autowired
