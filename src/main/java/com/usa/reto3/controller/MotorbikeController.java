@@ -44,7 +44,7 @@ public class MotorbikeController {
         return motorbikeService.getAll();
     }
     @DeleteMapping("/{idMotorbike}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteMotorbike(@PathVariable Integer idMotorbike) {
         return motorbikeService.delete(idMotorbike);
     }
