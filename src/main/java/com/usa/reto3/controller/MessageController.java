@@ -1,6 +1,5 @@
 package com.usa.reto3.controller;
 
-import com.usa.reto3.entities.Category;
 import com.usa.reto3.entities.Message;
 import com.usa.reto3.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Message")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class MessageController {
     @Autowired
     private MessageService messageService;

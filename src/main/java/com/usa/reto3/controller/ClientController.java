@@ -1,6 +1,5 @@
 package com.usa.reto3.controller;
 
-import com.usa.reto3.entities.Category;
 import com.usa.reto3.entities.Client;
 import com.usa.reto3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Client")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ClientController {
     @Autowired
     private ClientService clientService;

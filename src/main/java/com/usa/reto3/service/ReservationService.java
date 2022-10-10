@@ -3,7 +3,9 @@ package com.usa.reto3.service;
 import com.usa.reto3.entities.Reservation;
 import com.usa.reto3.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -68,6 +70,7 @@ public class ReservationService {
             return p;
         }
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(int id){
         boolean flag=false;
         Optional<Reservation>p= reservationRepository.getReservation(id);
