@@ -20,20 +20,31 @@ public class Client implements Serializable {
     @Column(length = 250)
     private String name;
     private Integer age;
-
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Message> messages;
-
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
 
     public Client(){
-        this.reservations = new ArrayList<Reservation>();
-        this.messages = new ArrayList<Message>();
+        this.reservations = new ArrayList<>();
+        this.messages = new ArrayList<>();
     }
-
+    public Client(Integer idClient) {
+        this.idClient = idClient;
+        this.reservations = new ArrayList<>();
+        this.messages = new ArrayList<>();
+    }
+    public Client(Integer id, String name, String email, String password, Integer age) {
+        this.idClient = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.reservations = new ArrayList<>();
+        this.messages = new ArrayList<>();
+    }
     public Integer getIdClient() {
         return idClient;
     }

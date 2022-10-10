@@ -2,6 +2,7 @@ package com.usa.reto3.service;
 
 import com.usa.reto3.entities.Client;
 import com.usa.reto3.repository.ClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -11,12 +12,8 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ClientService {
-    private final ClientRepository clientRepository;
-
-    public ClientService(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-    }
-
+    @Autowired
+    private ClientRepository clientRepository;
     public List<Client> getAll(){
         return clientRepository.getAll();
     }

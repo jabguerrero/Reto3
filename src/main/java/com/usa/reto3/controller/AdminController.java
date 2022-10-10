@@ -32,7 +32,6 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @PostMapping("/save")
     public Admin save(@RequestBody Admin ad) {
         return adminService.save(ad);

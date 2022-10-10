@@ -21,11 +21,11 @@ public class AdminRepository {
         return adminCrudRepository.findById(id);
     }
 
-    public Admin save(Admin administrador) {
-        return adminCrudRepository.save(administrador);
+    public Admin save(Admin admin) {
+        return adminCrudRepository.save(admin);
     }
 
-    public void delete(Admin administrador) {
-        adminCrudRepository.delete(administrador);
+    public void delete(Admin admin) {
+        adminCrudRepository.delete(admin);
     }
 }

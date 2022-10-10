@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public class MotorbikeRepository {
-
     @Autowired
     private MotorbikeCrudRepository motorbikeCrudRepository;
     public List<Motorbike> getAll(){

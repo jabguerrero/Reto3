@@ -21,6 +21,14 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Motorbike> motorbikes;
 
+    public Category() {
+    }
+    public Category(Integer id, String name, String description, List<Motorbike> motorbikes) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.motorbikes = motorbikes;
+    }
     public Integer getId() {
         return id;
     }

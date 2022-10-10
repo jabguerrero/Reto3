@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public class MessageRepository {
-
     @Autowired
     private MessageCrudRepository messageCrudRepository;
     public List<Message> getAll(){
