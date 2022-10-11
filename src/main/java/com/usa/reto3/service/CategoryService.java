@@ -3,9 +3,7 @@ package com.usa.reto3.service;
 import com.usa.reto3.entities.Category;
 import com.usa.reto3.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -57,7 +55,7 @@ public class CategoryService {
             return p;
         }
     }
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     public boolean delete(int id){
         boolean flag=false;
         Optional<Category>p= categoryRepository.getCategory(id);

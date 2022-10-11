@@ -1,5 +1,7 @@
 package com.usa.reto3.controller;
 
+import com.usa.reto3.entities.DTOs.CountClient;
+import com.usa.reto3.entities.DTOs.CountStatus;
 import com.usa.reto3.entities.Reservation;
 import com.usa.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +56,18 @@ public class ReservationController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/report-clients")
+    public  List<CountClient> getClientCasher(){
+        return reservationService.getClientCasher();
+    }
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReportReservationsBetweenDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
+        return reservationService.getReservationsBetweenDates(dateOne, dateTwo);
+    }
+    @GetMapping("/report-status")
+    public CountStatus getReportStatus(){
+        return reservationService.getReservationsStatus();
     }
 }

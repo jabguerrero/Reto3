@@ -28,8 +28,6 @@ public class CategoryController {
     }
 
 
-
-
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Category> getAllClient2() {
