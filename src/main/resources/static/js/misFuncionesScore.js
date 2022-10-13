@@ -18,7 +18,7 @@ $(document).ready(function(){
     traerInformacionR();
 });
 
-// Rutina para taer las Reservacion a un <select>
+// Rutina para traer la Reservacion a un <select>
 function traerInformacionR(){
     $.ajax({
         url:"http://localhost:8080/api/Reservation/all",
@@ -31,7 +31,7 @@ function traerInformacionR(){
     });
 }
 
-// Rutina para pintar las Reservacion a un <select>
+// Rutina para pintar la Reservacion a un <select>
 function pintarRespuestaR(respuestaR){
     var mylista=document.getElementById("resultadoR");
     for(i=0; i<respuestaR.length; i++){
@@ -45,7 +45,7 @@ $(document).ready(function(){
     traerInformacionScore();
 });
 
-// Rutina para taer las Calificaciones
+// Rutina para traer las Calificaciones
 function traerInformacionScore(){
     $.ajax({
         url:"http://localhost:8080/api/Score/all",
@@ -64,18 +64,18 @@ function pintarRespuestaScore(respuestaScore){
     for(i=0; i<respuestaScore.length; i++){
         myTableS+=`
         <div class="card text-black card border-danger bg-info mb-3" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Id Reserva: ${respuestaScore[i].reservation.idReservation}</h5>
-            <h5 class="card-subtitle">Fecha Inicio: ${respuestaScore[i].reservation.startDate.substring(0, 10)}</h5>
-            <h5 class="card-subtitle">Fecha Final: ${respuestaScore[i].reservation.devolutionDate.substring(0, 10)}</h5>
-            <h5 class="card-title">Motocicleta: ${respuestaScore[i].reservation.motorbike.name}</h5>
-            <h5 class="card-subtitle">Marca: ${respuestaScore[i].reservation.motorbike.brand}</h5>
-            <h5 class="card-subtitle">Modelo:${respuestaScore[i].reservation.motorbike.year}</h5>
-            <h5 class="card-title">Id Cliente: ${respuestaScore[i].reservation.client.idClient}</h5>
-            <h5 class="card-title">Nombre: ${respuestaScore[i].reservation.client.name}</h5>
-            <h5 class="card-subtitle">Correo: ${respuestaScore[i].reservation.client.email}</h5>
-            <h5 class="card-title">Estrellas: ${respuestaScore[i].stars}</h5>
-            <p class="card-text">Comentario: ${respuestaScore[i].messageText}</p>
+            <div class="card-body">
+                <h5 class="card-title">Id Reserva: ${respuestaScore[i].reservation.idReservation}</h5>
+                <h5 class="card-subtitle">Fecha Inicio: ${respuestaScore[i].reservation.startDate.substring(0, 10)}</h5>
+                <h5 class="card-subtitle">Fecha Final: ${respuestaScore[i].reservation.devolutionDate.substring(0, 10)}</h5>
+                <h5 class="card-title">Motocicleta: ${respuestaScore[i].reservation.motorbike.name}</h5>
+                <h5 class="card-subtitle">Marca: ${respuestaScore[i].reservation.motorbike.brand}</h5>
+                <h5 class="card-subtitle">Modelo:${respuestaScore[i].reservation.motorbike.year}</h5>
+                <h5 class="card-title">Id Cliente: ${respuestaScore[i].reservation.client.idClient}</h5>
+                <h5 class="card-title">Nombre: ${respuestaScore[i].reservation.client.name}</h5>
+                <h5 class="card-subtitle">Correo: ${respuestaScore[i].reservation.client.email}</h5>
+                <h5 class="card-title">Estrellas: ${respuestaScore[i].stars}</h5>
+                <p class="card-text">Comentario: ${respuestaScore[i].messageText}</p>
             </div>
         </div>`;
     }

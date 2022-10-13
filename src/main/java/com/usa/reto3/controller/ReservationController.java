@@ -30,8 +30,6 @@ public class ReservationController {
     }
 
 
-
-
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public List<Reservation> getAllReservation2() {
