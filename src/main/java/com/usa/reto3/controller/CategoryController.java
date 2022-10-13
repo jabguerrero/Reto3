@@ -49,6 +49,7 @@ public class CategoryController {
     @PutMapping("/{id}")
     public ResponseEntity<Category> update(@PathVariable Integer id) {
         Category category;
+
         try {
             category = categoryService.getCategory(id).get();
             return new ResponseEntity<>(category, HttpStatus.OK);
