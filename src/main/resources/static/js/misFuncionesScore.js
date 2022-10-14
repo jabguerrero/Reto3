@@ -79,7 +79,7 @@ function pintarRespuestaScore(respuestaScore){
             </div>
         </div>`;
     }
-    myTableS+='</div></div>';
+    myTableS+='<div></div>';
     $("#resultadoScore").append(myTableS);
 }
 

@@ -24,7 +24,7 @@ canvas{
   width: 100%;
   position: fixed;
   z-index: -2;
-  background: #56648d;
+  background: #6781cc;
 }
 .content {
   max-width: 100%;
@@ -214,7 +214,7 @@ visibility: visible;
 font-size: 20px;
 width: 100%;
 max-width: 250px;
-background: #3c8d29;
+background: #9f7f44;
 height: 100vh;
 position: relative;
 transition: all 500ms ease;
