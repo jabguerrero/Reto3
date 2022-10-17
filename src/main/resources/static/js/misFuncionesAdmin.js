@@ -155,7 +155,7 @@ var logout = function () {
 //Funciones de la tabla Administrador
 $(document).ready(function (){
     traerInformacionAdmin();
-    $.get("http://localhost:8080/user",function(data){
+    $.get("http://localhost:8080/user",function(data){ //150.230.95.100 puerto de Alejandro para la maquina virtual
         console.log(data.name);
         $("#userloginname").html(data.name);
         // document.getElementById("userloginname").innerHTML =data.login;
